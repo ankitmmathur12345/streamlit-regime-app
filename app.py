@@ -17,7 +17,7 @@ if st.button("Analyze"):
         with st.spinner("Fetching and analyzing market regime..."):
             try:
                 # Call FastAPI backend
-                from .regime_model import analyze_weekly_regime
+                from regime_model import analyze_weekly_regime
                 data = analyze_weekly_regime(ticker)
 
                 # Header
