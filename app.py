@@ -17,9 +17,8 @@ if st.button("Analyze"):
         with st.spinner("Fetching and analyzing market regime..."):
             try:
                 # Call FastAPI backend
-                response = requests.get("http://localhost:8000/regime", params={"ticker": ticker})
-                response.raise_for_status()
-                data = response.json()
+                from .regime_model import analyze_weekly_regime
+                data = analyze_weekly_regime(ticker)
 
                 # Header
                 st.subheader(f"📌 Current Regime: **{data['current_regime']}**")
